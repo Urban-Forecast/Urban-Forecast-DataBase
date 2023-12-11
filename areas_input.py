@@ -12,11 +12,11 @@ cursor = conn.cursor()
 
 # Открытие json-файла и чтение данных
 with open(r'files/districts_v2.json', 'r', encoding='utf-8') as file:
-    data = json.load(file)
+    area_data = json.load(file)
 
 # Внесение данных в базу данных
 
-for k in data.keys():
+for k in area_data.keys():
     cursor.execute('''INSERT INTO "OOP_database".areas (area_name) VALUES (%s) ;''', (k,))
 # Сохранение изменений и закрытие соединения с базой данных
 conn.commit()
